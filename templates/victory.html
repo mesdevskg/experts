@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+    {% trans 'Home' %}
+{% endblock %}
+{% block content %}
+    <div class="row no-print">
+
+        <div class="cloud-box" id="lottery-app">
+            <h1 class="text-center font-italic">{% trans 'Winner' %}</h1>
+            <h2 class="name-placeholder">
+                {{ history.winner }}
+            </h2>
+
+        </div>
+        <style>
+            .cloud-box {
+                position: relative;
+                height: 300px;
+                width: 100%;
+                margin: 0 auto;
+                padding: 1rem 0;
+            }
+
+            .name-placeholder {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                line-height: 1;
+                text-transform: uppercase;
+                letter-spacing: 4px;
+                font-weight: bold;
+                text-align: center;
+                width: 100%;
+                -webkit-box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.3);
+                -moz-box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.3);
+                box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.3);
+                padding: 1rem;
+                background-color: #ffffff;
+            }
+        </style>
+        <div id="history" class="col-12 col-sm-12 col-md-12 mt-5 d-none">
+            <div class="row">
+                <div class="col float-left"><p>{% trans 'All attempts' %}: {{ history_count }}</p></div>
+                <div class="no-print float-right">
+                    <button class="btn-add no-print" onclick="window.print()">
+                        <span class="fa fa-print" aria-hidden="true"></span>
+                        {% trans 'Print' %}
+                    </button>
+                </div>
+            </div>
+            <h2 class="card-header">{% trans 'History' %}</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>{% trans 'Full name' %}</th>
+                    <th>{% trans 'Book' %}</th>
+                    <th>{% trans 'Time' %}</th>
+                    <th>{% trans 'More' %}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for history in history_list %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ history.winner }}</td>
+                        <td>{{ history.book }}</td>
+                        <td>{{ history.created }}</td>
+                        <td><a href="{% url 'items:history_detail' history.id %}">{% trans 'More' %}</a></td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+            <a href="{% url 'items:history_list' %}" class="page-link">{% trans 'All History' %}</a>
+        </div>
+    </div>
+{% endblock %}
+{% block print %}
+    <div class="my-container d-none">
+        {{ history.document|safe }}
+    </div>
+{% endblock %}
+{% block js %}
+    <script src="{% static 'js/party.min.js' %}"></script>
+    <script>
+        window.onload = () => {
+            party.screen()
+            asyncFunctionCall();
+
+        };
+        const asyncFunctionCall = async () => {
+            await addNSecondsDelay(1200);
+            let his = document.getElementById('history').classList.remove('d-none')
+
+        }
+        const addNSecondsDelay = (n) => {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve();
+                }, n);
+            });
+        };
+    </script>
+{% endblock %}

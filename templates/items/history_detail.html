@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+    {% trans 'Winner' %}: {{ object.winner.full_name }}
+{% endblock %}
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb no-print">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">{% trans 'Home' %}</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'items:history_list' %}">{% trans 'History List' %}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{% trans 'History Detail' %}</li>
+        </ol>
+    </nav>
+    <table class="table no-print">
+        <tbody>
+        <tr>
+            <th>{% trans 'Winner' %}</th>
+            <td>{{ object.winner }}</td>
+        </tr>
+        <tr>
+            <th>{% trans 'Book' %}</th>
+            <td>{{ object.book }}</td>
+        </tr>
+        <tr>
+            <th>{% trans 'Okuu Kitep' %}</th>
+            <td>{{ object.okuu_kitep.fullname }}</td>
+        </tr>
+        <tr>
+            <th>{% trans 'Sector Knigi' %}</th>
+            <td>{{ object.sector_knigi.fullname }}</td>
+        </tr>
+        <tr>
+            <th>{% trans 'Created Time' %}</th>
+            <td>{{ object.created }}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}
+{% block print %}
+    <div class="my-container">
+        {{ object.document|safe }}
+    </div>
+    <div class="button__items no-print">
+        <button class="btn-add no-print" onclick="window.print()"><span class="fa fa-print" aria-hidden="true"></span>
+            {% trans 'Print' %}
+        </button>
+    </div>
+{% endblock %}

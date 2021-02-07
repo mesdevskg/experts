@@ -1,0 +1,248 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-08 01:38+0600\n"
+"PO-Revision-Date: 2021-02-08 01:40+0458\n"
+"Last-Translator: b'Anonymous User <test@okuu.kg>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Translated-Using: django-rosetta 0.9.5\n"
+
+#: items/models.py:7 users/forms.py:16
+msgid "book"
+msgstr "книга"
+
+#: items/models.py:10 templates/items/expert_detail.html:21
+#: templates/items/expert_detail.html:36 templates/items/expert_list.html:20
+#: templates/items/history_detail.html:22 templates/items/history_list.html:20
+#: templates/victory.html:60
+msgid "Book"
+msgstr "Книга"
+
+#: items/models.py:11
+msgid "Books"
+msgstr "Книги"
+
+#: items/models.py:19 users/models.py:57
+msgid "full name"
+msgstr "ФИО"
+
+#: items/models.py:20
+msgid "joined time"
+msgstr "время входа"
+
+#: items/models.py:23
+msgid "Expert"
+msgstr "Эксперт"
+
+#: items/models.py:24 templates/base.html:36
+msgid "Experts"
+msgstr "Эксперты"
+
+#: items/models.py:36
+msgid "created time"
+msgstr "время создания"
+
+#: items/models.py:37 templates/items/expert_detail.html:4
+#: templates/items/history_detail.html:5
+#: templates/items/history_detail.html:18 templates/victory.html:11
+msgid "Winner"
+msgstr "Победитель"
+
+#: items/models.py:39
+msgid "Type"
+msgstr "Тип"
+
+#: items/models.py:41 templates/items/history_detail.html:26 users/forms.py:19
+#: users/models.py:53
+msgid "Okuu Kitep"
+msgstr "Окуу Китеп"
+
+#: items/models.py:43 templates/items/history_detail.html:30
+msgid "Sector Knigi"
+msgstr "Китеп Сектору"
+
+#: items/models.py:44
+msgid "document"
+msgstr "Документ"
+
+#: items/models.py:47 templates/base.html:39 templates/home.html:40
+#: templates/victory.html:54
+msgid "History"
+msgstr "История"
+
+#: items/models.py:48
+msgid "Histories"
+msgstr "Истории"
+
+#: items/models.py:53
+msgid "commission one and commission two can't be same"
+msgstr "Коммисси должны быть разными людми"
+
+#: items/views.py:64
+#, python-brace-format
+msgid "The book {book.name} has no experts"
+msgstr "Книга {book.name} не имеет ни одного эксперта"
+
+#: items/views.py:68
+msgid ""
+"Please enter the correct username and password for a staff account. Note "
+"that both fields may be case-sensitive."
+msgstr ""
+"Пожалуйста, введите правильное имя пользователя и пароль для учетной записи "
+"персонала. Учтите что оба поля могут быть чувствительны к регистру."
+
+#: main/settings.py:130
+msgid "English"
+msgstr "Англиский"
+
+#: main/settings.py:131
+msgid "Kyrgyz"
+msgstr "Кыргызский"
+
+#: main/settings.py:132
+msgid "Russian"
+msgstr "Русский"
+
+#: templates/about.html:4 templates/base.html:42
+msgid "About Project"
+msgstr "О проекте"
+
+#: templates/base.html:33 templates/home.html:6
+#: templates/items/expert_detail.html:9 templates/items/expert_list.html:9
+#: templates/items/history_detail.html:10 templates/items/history_list.html:9
+#: templates/victory.html:5
+msgid "Home"
+msgstr "Главная"
+
+#: templates/home.html:11
+msgid "Randomly choose an expert"
+msgstr "Случайно выбрать эксперта"
+
+#: templates/home.html:39 templates/victory.html:46
+msgid "All attempts"
+msgstr "Все попытки"
+
+#: templates/home.html:53 templates/victory.html:78
+msgid "All History"
+msgstr "Все истории"
+
+#: templates/items/expert_detail.html:10
+#: templates/items/history_detail.html:11 templates/items/history_list.html:10
+msgid "History List"
+msgstr "Список историй"
+
+#: templates/items/expert_detail.html:11
+#: templates/items/history_detail.html:12
+msgid "History Detail"
+msgstr "Подробная история"
+
+#: templates/items/expert_detail.html:17 templates/items/expert_list.html:19
+#: templates/items/history_list.html:19 templates/victory.html:59
+msgid "Full name"
+msgstr "ФИО"
+
+#: templates/items/expert_detail.html:25
+msgid "Joined"
+msgstr "Время регистрации"
+
+#: templates/items/expert_detail.html:31
+msgid "Won Competitions"
+msgstr "Выигранные соревнования"
+
+#: templates/items/expert_detail.html:37 templates/items/history_list.html:21
+#: templates/victory.html:61
+msgid "Time"
+msgstr "Время"
+
+#: templates/items/expert_detail.html:38
+msgid "Detail Page"
+msgstr "Подробная страница"
+
+#: templates/items/expert_detail.html:47
+msgid "Detail"
+msgstr "Подробная"
+
+#: templates/items/expert_list.html:4 templates/items/expert_list.html:10
+msgid "Expert List"
+msgstr "Список экспертов"
+
+#: templates/items/expert_list.html:21
+msgid "Joined time"
+msgstr "Время регистрации"
+
+#: templates/items/expert_list.html:22
+msgid "Profile Page"
+msgstr "Страница профиля"
+
+#: templates/items/expert_list.html:32 templates/items/history_list.html:22
+#: templates/items/history_list.html:32 templates/victory.html:62
+#: templates/victory.html:72
+msgid "More"
+msgstr "Ещё"
+
+#: templates/items/history_detail.html:34
+msgid "Created Time"
+msgstr "Время создания"
+
+#: templates/items/history_detail.html:46 templates/victory.html:50
+msgid "Print"
+msgstr "Печатать"
+
+#: users/forms.py:17
+msgid "type"
+msgstr "тип"
+
+#: users/forms.py:20
+#| msgid "Okuu Kitep"
+msgid "PWD of Okuu Kitep"
+msgstr "пароль Окуу Китеп"
+
+#: users/forms.py:22
+#| msgid "Sector Knigi"
+msgid "Sector knigi"
+msgstr "Сектор издания книги"
+
+#: users/forms.py:23
+#| msgid "Sector Knigi"
+msgid "PWD of Sector knigi"
+msgstr "пароль издания книги"
+
+#: users/models.py:22 users/models.py:37
+msgid "Users must have an email"
+msgstr "У пользователей должен быть адрес электронной почты"
+
+#: users/models.py:54
+msgid "Sector of the Book Edition"
+msgstr "Сектор книжного издания"
+
+#: users/models.py:58
+msgid "category"
+msgstr "категория"
+
+#: users/models.py:70
+msgid "User"
+msgstr "Пользователь"
+
+#: users/models.py:71
+msgid "Users"
+msgstr "Пользователи"
+
+#: users/models.py:82
+msgid "Your new password"
+msgstr "Ваш новый пароль"
+
+#: users/models.py:82
+msgid "Your new password:\t"
+msgstr "Ваш новый пароль:"

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">{% trans 'Home' %}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{% trans 'History List' %}</li>
+        </ol>
+    </nav>
+    <div class="row">
+        <div class="col list-group">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>{% trans 'Full name' %}</th>
+                    <th>{% trans 'Book' %}</th>
+                    <th>{% trans 'Time' %}</th>
+                    <th>{% trans 'More' %}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for object in object_list %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ object.winner }}</td>
+                        <td>{{ object.book }}</td>
+                        <td>{{ object.created }}</td>
+                        <td><a href="{% url 'items:history_detail' object.id %}">{% trans 'More' %}</a></td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+            {% if is_paginated %}
+                <ul class="pagination mt-5">
+                    {% if page_obj.has_previous %}
+                        <li><a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+                    {% else %}
+                        <li class="disabled"><span class="page-link">&laquo;</span></li>
+                    {% endif %}
+                    {% for i in paginator.page_range %}
+                        {% if page_obj.number == i %}
+                            <li class="active page-item"><span class="page-link">{{ i }} <span
+                                    class="sr-only">(current)</span></span></li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if page_obj.has_next %}
+                        <li class="page-item"><a class="page-link"
+                                                 href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                    {% else %}
+                        <li class="disabled page-item"><span>&raquo;</span></li>
+                    {% endif %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

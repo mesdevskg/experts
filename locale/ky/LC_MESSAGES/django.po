@@ -1,0 +1,248 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-08 01:38+0600\n"
+"PO-Revision-Date: 2021-02-08 01:39+0458\n"
+"Last-Translator: b'Anonymous User <test@okuu.kg>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Translated-Using: django-rosetta 0.9.5\n"
+
+#: items/models.py:7 users/forms.py:16
+msgid "book"
+msgstr "китеп"
+
+#: items/models.py:10 templates/items/expert_detail.html:21
+#: templates/items/expert_detail.html:36 templates/items/expert_list.html:20
+#: templates/items/history_detail.html:22 templates/items/history_list.html:20
+#: templates/victory.html:60
+msgid "Book"
+msgstr "Китеп"
+
+#: items/models.py:11
+msgid "Books"
+msgstr "Китептер"
+
+#: items/models.py:19 users/models.py:57
+msgid "full name"
+msgstr "Аты жөнү"
+
+#: items/models.py:20
+msgid "joined time"
+msgstr "Кошулган күнү"
+
+#: items/models.py:23
+msgid "Expert"
+msgstr "Эксперт"
+
+#: items/models.py:24 templates/base.html:36
+msgid "Experts"
+msgstr "Эксперт"
+
+#: items/models.py:36
+msgid "created time"
+msgstr "Жасалган убактысы"
+
+#: items/models.py:37 templates/items/expert_detail.html:4
+#: templates/items/history_detail.html:5
+#: templates/items/history_detail.html:18 templates/victory.html:11
+msgid "Winner"
+msgstr "Жеңүүчү"
+
+#: items/models.py:39
+msgid "Type"
+msgstr "Тиби"
+
+#: items/models.py:41 templates/items/history_detail.html:26 users/forms.py:19
+#: users/models.py:53
+msgid "Okuu Kitep"
+msgstr "Окуу Китеп"
+
+#: items/models.py:43 templates/items/history_detail.html:30
+msgid "Sector Knigi"
+msgstr "Китеп Сектору"
+
+#: items/models.py:44
+msgid "document"
+msgstr "Иш кагаз"
+
+#: items/models.py:47 templates/base.html:39 templates/home.html:40
+#: templates/victory.html:54
+msgid "History"
+msgstr "Тарых"
+
+#: items/models.py:48
+msgid "Histories"
+msgstr "Тарыхтар"
+
+#: items/models.py:53
+msgid "commission one and commission two can't be same"
+msgstr "Коммиссиялар окшош болбошу керек"
+
+#: items/views.py:64
+#, python-brace-format
+msgid "The book {book.name} has no experts"
+msgstr "{book.name} китебинде бир да эксперт жок"
+
+#: items/views.py:68
+msgid ""
+"Please enter the correct username and password for a staff account. Note "
+"that both fields may be case-sensitive."
+msgstr ""
+"Сураныч, кызматкердин колдонуучу жана сырсөздү туура киргизиңиз. Эки талаа "
+"тең ЧоңКичинеликке сезгич болушу мүмкүн."
+
+#: main/settings.py:130
+msgid "English"
+msgstr "Англисче"
+
+#: main/settings.py:131
+msgid "Kyrgyz"
+msgstr "Кыргызча"
+
+#: main/settings.py:132
+msgid "Russian"
+msgstr "Орусча"
+
+#: templates/about.html:4 templates/base.html:42
+msgid "About Project"
+msgstr "Долбоор Жөнүндө"
+
+#: templates/base.html:33 templates/home.html:6
+#: templates/items/expert_detail.html:9 templates/items/expert_list.html:9
+#: templates/items/history_detail.html:10 templates/items/history_list.html:9
+#: templates/victory.html:5
+msgid "Home"
+msgstr "Башкы"
+
+#: templates/home.html:11
+msgid "Randomly choose an expert"
+msgstr "Экспертти кокус тандоо"
+
+#: templates/home.html:39 templates/victory.html:46
+msgid "All attempts"
+msgstr "Баардык аракеттер"
+
+#: templates/home.html:53 templates/victory.html:78
+msgid "All History"
+msgstr "Баардык тарыхтар"
+
+#: templates/items/expert_detail.html:10
+#: templates/items/history_detail.html:11 templates/items/history_list.html:10
+msgid "History List"
+msgstr "Тарых тизмеси"
+
+#: templates/items/expert_detail.html:11
+#: templates/items/history_detail.html:12
+msgid "History Detail"
+msgstr "Тарых жөнүндө"
+
+#: templates/items/expert_detail.html:17 templates/items/expert_list.html:19
+#: templates/items/history_list.html:19 templates/victory.html:59
+msgid "Full name"
+msgstr "Аты жөнү"
+
+#: templates/items/expert_detail.html:25
+msgid "Joined"
+msgstr "Кошулган"
+
+#: templates/items/expert_detail.html:31
+msgid "Won Competitions"
+msgstr "Жеңген таймаштары"
+
+#: templates/items/expert_detail.html:37 templates/items/history_list.html:21
+#: templates/victory.html:61
+msgid "Time"
+msgstr "Убакыт"
+
+#: templates/items/expert_detail.html:38
+msgid "Detail Page"
+msgstr "Детал барагы"
+
+#: templates/items/expert_detail.html:47
+msgid "Detail"
+msgstr "Детал"
+
+#: templates/items/expert_list.html:4 templates/items/expert_list.html:10
+msgid "Expert List"
+msgstr "Эксперт тизмеси"
+
+#: templates/items/expert_list.html:21
+msgid "Joined time"
+msgstr "Кошулган күнү"
+
+#: templates/items/expert_list.html:22
+msgid "Profile Page"
+msgstr "Профил барагы"
+
+#: templates/items/expert_list.html:32 templates/items/history_list.html:22
+#: templates/items/history_list.html:32 templates/victory.html:62
+#: templates/victory.html:72
+msgid "More"
+msgstr "Дагы"
+
+#: templates/items/history_detail.html:34
+msgid "Created Time"
+msgstr "Жасалган убагы"
+
+#: templates/items/history_detail.html:46 templates/victory.html:50
+msgid "Print"
+msgstr "Басуу"
+
+#: users/forms.py:17
+msgid "type"
+msgstr "тиби"
+
+#: users/forms.py:20
+#| msgid "Okuu Kitep"
+msgid "PWD of Okuu Kitep"
+msgstr "Окуу Китеп сырсөзү"
+
+#: users/forms.py:22
+#| msgid "Sector Knigi"
+msgid "Sector knigi"
+msgstr "Китеп Сектору"
+
+#: users/forms.py:23
+#| msgid "Sector Knigi"
+msgid "PWD of Sector knigi"
+msgstr "Китеп Сектору сырсөзү"
+
+#: users/models.py:22 users/models.py:37
+msgid "Users must have an email"
+msgstr "Колдонуучу почтасы болушу шарт"
+
+#: users/models.py:54
+msgid "Sector of the Book Edition"
+msgstr "Китеп издание сектору "
+
+#: users/models.py:58
+msgid "category"
+msgstr "категория"
+
+#: users/models.py:70
+msgid "User"
+msgstr "Колдонуучу"
+
+#: users/models.py:71
+msgid "Users"
+msgstr "Колдонуучулар"
+
+#: users/models.py:82
+msgid "Your new password"
+msgstr "Сиздин жаңы сырсөз"
+
+#: users/models.py:82
+msgid "Your new password:\t"
+msgstr "Сиздин жаңы сырсөз:"

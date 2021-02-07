@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}
+    {% trans 'Winner' %}: {{ object.winner.full_name }}
+{% endblock %}
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">{% trans 'Home' %}</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'items:history_list' %}">{% trans 'History List' %}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{% trans 'History Detail' %}</li>
+        </ol>
+    </nav>
+    <table class="table">
+        <tbody>
+        <tr>
+            <th scope="row">{% trans 'Full name' %}</th>
+            <td>{{ object.full_name }}</td>
+        </tr>
+        <tr>
+            <th>{% trans 'Book' %}</th>
+            <td>{{ object.book }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans 'Joined' %}</th>
+            <td>{{ object.created }}</td>
+        </tr>
+        </tbody>
+    </table>
+    {% if object.history_set.exists %}
+        <p class="text-center font-weight-bold">{% trans 'Won Competitions' %}</p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">{% trans 'Book' %}</th>
+                <th scope="col">{% trans 'Time' %}</th>
+                <th scope="col">{% trans 'Detail Page' %}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for history in object.history_set.all %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ history.book }}</td>
+                    <td>{{ history.created }}</td>
+                    <td><a class="page-link" href="{% url 'items:history_detail' history.id %}">{% trans 'Detail' %}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

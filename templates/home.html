@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+    {% trans 'Home' %}
+{% endblock %}
+{% block content %}
+    <div class="row no-print">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-8 mt-5">
+            <h1 class="">{% trans 'Randomly choose an expert' %}</h1>
+            <hr class="mt-0 mb-4">
+            <form action="{% url 'home' %}" method="post" novalidate autocomplete="off" class="no-print">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.book|as_crispy_field }}
+                </div>
+                <div class="form-group">
+                    {{ form.type|as_crispy_field }}
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.okuu_kitep|as_crispy_field }}
+                        {{ form.okuu_kitep_password|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.sector_knigi|as_crispy_field }}
+                        {{ form.sector_knigi_password|as_crispy_field }}
+                    </div>
+                </div>
+                <div style="display: none;">
+                    <input type="text" id="PreventChromeAutocomplete"
+                           name="PreventChromeAutocomplete" autocomplete="address-level4"/>
+                </div>
+                <input class="btn btn-success" type="submit" name="submit">
+            </form>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-4 mt-5">
+            <p>{% trans 'All attempts' %}: {{ history_count }}</p>
+            <h2 class="card-header">{% trans 'History' %}</h2>
+            {% for object in history_list %}
+                <div class="card list-group-item">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{% url 'items:history_detail' object.id %}" class="card-link">
+                                {{ object.winner }}
+                            </a></h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ object.book }}</h6>
+                        <p class="card-text">{{ object.created }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+            <a href="{% url 'items:history_list' %}" class="page-link">{% trans 'All History' %}</a>
+        </div>
+    </div>
+{% endblock %}
