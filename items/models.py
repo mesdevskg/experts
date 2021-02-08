@@ -1,5 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 
@@ -51,6 +52,9 @@ class History(models.Model):
     def clean(self):
         if self.okuu_kitep == self.sector_knigi:
             raise ValidationError(_('commission one and commission two can\'t be same'))
+
+    def get_absolute_url(self):
+        return reverse('items:history_detail', kwargs={'pk': self.id})
 
     def __str__(self):
         return f'{self.winner.full_name} {self.created.strftime("%d %b %Y %H:%M:%S")}'

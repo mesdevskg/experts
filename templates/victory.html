@@ -86,9 +86,18 @@
 {% endblock %}
 {% block js %}
     <script src="{% static 'js/party.min.js' %}"></script>
+    <script src="{% static 'js/jquery.qrcode.min.js' %}"></script>
+
     <script>
         window.onload = () => {
             party.screen()
+            let href = window.location.href.split('/')
+
+            $('#qrcode').qrcode({
+                text: href[0] + '//' + href[2] + '{{ history.get_absolute_url}}',
+                width: 100,
+                height: 100,
+            })
             asyncFunctionCall();
 
         };

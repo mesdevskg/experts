@@ -29,7 +29,6 @@ class HomeView(View):
         if form.is_valid():
             book = form.cleaned_data.get('book')
             _type = form.cleaned_data.get('type')
-            print(_type)
             okuu_kitep = authenticate(username=form.cleaned_data.get('okuu_kitep'),
                                       password=form.cleaned_data.get('okuu_kitep_password'))
             sector_knigi = authenticate(username=form.cleaned_data.get('sector_knigi'),
@@ -56,7 +55,11 @@ class HomeView(View):
                                <p class="mt-2">{sector_knigi.fullname} _______________</p>
                                <p class="mt-2">Көзөмөлдөөчүлөр:</p>
                                <p class="mt-2">______________________________________________</p>
-                               <p class="mt-2">______________________________________________</p></div>'''
+                               <p class="mt-2">______________________________________________</p>
+                               <p style="margin-top: 150px">Документтин аныктыгын төмөнкү QR код аркылуу текшерип алыңыз.</p>
+                               <div id="qrcode" style="margin-top: 10px;"></div>
+                               </div>
+                               '''
                     history = History.objects.create(winner=winner, book=book,
                                                      okuu_kitep=okuu_kitep, sector_knigi=sector_knigi,
                                                      document=document)
