@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v1
       - name: Add environment variables to .env
         run: |
-          echo DEBUG=$DEBUG >> ./root/.env
+          echo DEBUG=${DEBUG} >> ./root/.env
           echo DATABASE=${{ env.DATABASE }} >> ./root/.env
           echo SECRET_KEY=${{ env.SECRET_KEY }} >> ./root/.env
           echo ALLOWED_HOSTS=${{ env.ALLOWED_HOSTS }} >> ./root/.env
