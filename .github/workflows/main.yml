@@ -99,8 +99,8 @@ jobs:
       - name: Build and deploy images on Host
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-          HOST_IP_ADDRESS: ${{ secrets.HOST_IP_ADDRESS }}
-          HOST_PORT: ${{ secrets.HOST_PORT }}
+          HOST_IP_ADDRESS: 217.29.19.66
+          HOST_PORT: 2021
         run: |
           scp -o StrictHostKeyChecking=no -P 2021 "./.env" "./.db.env" "./.backups.env" "./docker-compose.yml" root@217.29.19.66:/root/experts
           ssh -o StrictHostKeyChecking=no root@217.29.19.66 -p 2021 << 'ENDSSH'
