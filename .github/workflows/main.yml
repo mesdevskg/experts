@@ -104,7 +104,7 @@ jobs:
         run: |
           scp -o StrictHostKeyChecking=no -P 2021 "./.env" "./.db.env" "./.backups.env" "./docker-compose.yml" root@217.29.19.66:/root/experts
           ssh -o StrictHostKeyChecking=no root@217.29.19.66 -p 2021 << 'ENDSSH'
-            cd /root/kitep
+            cd /root/experts
             source ./.env
             docker login ghcr.io -u $NAMESPACE -p $PERSONAL_ACCESS_TOKEN
             docker pull $WEB_IMAGE
@@ -112,5 +112,5 @@ jobs:
             docker pull $REDIS_IMAGE
             docker-compose -f docker-compose.yml up -d
             docker image prune -f
-            docker-compose exec -d web gunicorn root.wsgi:application --name kitep --workers 2 --user=root --group root --bind=unix:/var/run/gunicorn/gunicorn.sock --log-level=debug --log-file=-
+            docker-compose exec -d web gunicorn root.wsgi:application --name web --workers 2 --user=root --group root --bind=unix:/var/run/gunicorn/gunicorn.sock --log-level=debug --log-file=-
           ENDSSH
