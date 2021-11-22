@@ -23,20 +23,20 @@ jobs:
         uses: actions/checkout@v1
       - name: Add environment variables to .env
         run: |
-          echo DEBUG=${{ secrets.DEBUG }} >> ./root/.env
-          echo DATABASE=${{ secrets.DATABASE }} >> ./root/.env
-          echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> ./root/.env
-          echo ALLOWED_HOSTS=${{ secrets.ALLOWED_HOSTS }} >> ./root/.env
-          echo DB_NAME=${{ secrets.DB_NAME }} >> ./root/.env
-          echo DB_USER=${{ secrets.DB_USER }} >> ./root/.env
-          echo DB_PWD=${{ secrets.DB_PWD }} >> ./root/.env
-          echo DB_HOST=${{ secrets.DB_HOST }} >> ./root/.env
-          echo DB_SOCK=${{ secrets.DB_SOCK }} >> ./root/.env
-          echo DB_PORT=${{ secrets.DB_PORT }} >> ./root/.env
-          echo EMAIL_HOST_PWD=${{ secrets.EMAIL_HOST_PWD }} >> ./root/.env
-          echo EMAIL_HOST=${{ secrets.EMAIL_HOST }} >> ./root/.env
-          echo EMAIL_PORT=${{ secrets.EMAIL_PORT }} >> ./root/.env
-          echo EMAIL_HOST_USER=${{ secrets.EMAIL_HOST_USER }} >> ./root/.env
+          echo DEBUG=${{ env.DEBUG }} >> ./root/.env
+          echo DATABASE=${{ env.DATABASE }} >> ./root/.env
+          echo SECRET_KEY=${{ env.SECRET_KEY }} >> ./root/.env
+          echo ALLOWED_HOSTS=${{ env.ALLOWED_HOSTS }} >> ./root/.env
+          echo DB_NAME=${{ env.env }} >> ./root/.env
+          echo DB_USER=${{ env.DB_USER }} >> ./root/.env
+          echo DB_PWD=${{ env.DB_PWD }} >> ./root/.env
+          echo DB_HOST=${{ env.DB_HOST }} >> ./root/.env
+          echo DB_SOCK=${{ env.DB_SOCK }} >> ./root/.env
+          echo DB_PORT=${{ env.DB_PORT }} >> ./root/.env
+          echo EMAIL_HOST_PWD=${{ env.EMAIL_HOST_PWD }} >> ./root/.env
+          echo EMAIL_HOST=${{ env.EMAIL_HOST }} >> ./root/.env
+          echo EMAIL_PORT=${{ env.EMAIL_PORT }} >> ./root/.env
+          echo EMAIL_HOST_USER=${{ env.EMAIL_HOST_USER }} >> ./root/.env
       - name: Set environment variables
         run: |
           echo "BUILDER_IMAGE=$(echo ${{ env.BUILDER_IMAGE }} )" >> $GITHUB_ENV
@@ -45,7 +45,7 @@ jobs:
       - name: Login to Github Packages
         run: echo ${PERSONAL_ACCESS_TOKEN} | docker login ghcr.io -u ${{ secrets.NAMESPACE}} --password-stdin
         env:
-          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          PERSONAL_ACCESS_TOKEN: ${{ env.PERSONAL_ACCESS_TOKEN }}
       - name: Pull images
         run: |
           docker pull ${{ env.BUILDER_IMAGE }} || true
@@ -71,21 +71,21 @@ jobs:
         run: |
           echo WEB_IMAGE=${{ env.WEB_IMAGE }} >> ./.env
           echo NGINX_IMAGE=${{ env.NGINX_IMAGE }} >> ./.env
-          echo NAMESPACE=${{ secrets.NAMESPACE }} >> ./.env
-          echo PERSONAL_ACCESS_TOKEN=${{ secrets.PERSONAL_ACCESS_TOKEN }} >> ./.env
-          echo POSTGRES_USER=${{ secrets.DB_USER }} >> ./.db.env
-          echo POSTGRES_PASSWORD=${{ secrets.DB_PWD }} >> ./.db.env
-          echo POSTGRES_DB=${{ secrets.DB_NAME }} >> ./.db.env
-          echo POSTGRES_HOST=${{ secrets.DB_HOST }} >> ./.backups.env
-          echo POSTGRES_DB=${{ secrets.DB_NAME }} >> ./.backups.env
-          echo POSTGRES_USER=${{ secrets.DB_USER }} >> ./.backups.env
-          echo POSTGRES_PASSWORD=${{ secrets.DB_PWD }} >> ./.backups.env
-          echo POSTGRES_EXTRA_OPTS=${{ secrets.POSTGRES_EXTRA_OPTS }} >> ./.backups.env
-          echo SCHEDULE=${{ secrets.SCHEDULE }} >> ./.backups.env
-          echo BACKUP_KEEP_DAYS=${{ secrets.BACKUP_KEEP_DAYS }} >> ./.backups.env
-          echo BACKUP_KEEP_WEEKS=${{ secrets.BACKUP_KEEP_WEEKS }} >> ./.backups.env
-          echo BACKUP_KEEP_MONTHS=${{ secrets.BACKUP_KEEP_MONTHS }} >> ./.backups.env
-          echo HEALTHCHECK_PORT=${{ secrets.HEALTHCHECK_PORT }} >> ./.backups.env
+          echo NAMESPACE=${{ env.NAMESPACE }} >> ./.env
+          echo PERSONAL_ACCESS_TOKEN=${{ env.PERSONAL_ACCESS_TOKEN }} >> ./.env
+          echo POSTGRES_USER=${{ env.DB_USER }} >> ./.db.env
+          echo POSTGRES_PASSWORD=${{ env.DB_PWD }} >> ./.db.env
+          echo POSTGRES_DB=${{ env.DB_NAME }} >> ./.db.env
+          echo POSTGRES_HOST=${{ env.DB_HOST }} >> ./.backups.env
+          echo POSTGRES_DB=${{ env.DB_NAME }} >> ./.backups.env
+          echo POSTGRES_USER=${{ env.DB_USER }} >> ./.backups.env
+          echo POSTGRES_PASSWORD=${{ env.DB_PWD }} >> ./.backups.env
+          echo POSTGRES_EXTRA_OPTS=${{ env.POSTGRES_EXTRA_OPTS }} >> ./.backups.env
+          echo SCHEDULE=${{ env.SCHEDULE }} >> ./.backups.env
+          echo BACKUP_KEEP_DAYS=${{ env.BACKUP_KEEP_DAYS }} >> ./.backups.env
+          echo BACKUP_KEEP_WEEKS=${{ env.BACKUP_KEEP_WEEKS }} >> ./.backups.env
+          echo BACKUP_KEEP_MONTHS=${{ env.BACKUP_KEEP_MONTHS }} >> ./.backups.env
+          echo HEALTHCHECK_PORT=${{ env.HEALTHCHECK_PORT }} >> ./.backups.env
       - name: Add the private SSH key to the ssh-agent
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
@@ -93,13 +93,13 @@ jobs:
           mkdir -p ~/.ssh
           ssh-agent -a $SSH_AUTH_SOCK > /dev/null
           ssh-keyscan github.com >> ~/.ssh/known_hosts
-          ssh-add - <<< "${{ secrets.PRIVATE_KEY }}"
+          ssh-add - <<< "${{ env.PRIVATE_KEY }}"
       - name: Build and deploy images on Host
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
-          scp -o StrictHostKeyChecking=no -P {{ secrets.HOST_PORT }} "./.env" "./.db.env" "./.backups.env" "./docker-compose.yml" root@${{ secrets.HOST_IP_ADDRESS }}:/root/kitep
-          ssh -o StrictHostKeyChecking=no root@${{ secrets.HOST_IP_ADDRESS }} -p {{ secrets.HOST_PORT }} << 'ENDSSH'
+          scp -o StrictHostKeyChecking=no -P {{ env.HOST_PORT }} "./.env" "./.db.env" "./.backups.env" "./docker-compose.yml" root@${{ env.HOST_IP_ADDRESS }}:/root/kitep
+          ssh -o StrictHostKeyChecking=no root@${{ env.HOST_IP_ADDRESS }} -p {{ env.HOST_PORT }} << 'ENDSSH'
             cd /root/kitep
             source ./.env
             docker login ghcr.io -u $NAMESPACE -p $PERSONAL_ACCESS_TOKEN
