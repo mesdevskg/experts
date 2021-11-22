@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+      cache_from:
+        - "${BUILDER_IMAGE}"
+    image: "${BUILDER_IMAGE}"
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: final
+      cache_from:
+        - "${BUILDER_IMAGE}"
+        - "${WEB_IMAGE}"
+    image: "${WEB_IMAGE}"
+    env_file:
+      - ./root/.env
+
+  nginx:
+    build:
+      context: ./nginx
+      cache_from:
+        - "${NGINX_IMAGE}"
+    image: "${NGINX_IMAGE}"

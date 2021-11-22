@@ -11,25 +11,25 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
+from django.utils.translation import gettext_lazy
 
 from dotenv import load_dotenv
 
 load_dotenv()
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-from django.utils.translation import gettext_lazy
 
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'd((=gbu+00%s(vtf8zi$uc4n+4*@n+gn!nqah96x*ptp%fq#7a'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = '*' if DEBUG else os.getenv('ALLOWED_HOSTS').split(' ')
 
 # Application definition
 
@@ -64,16 +64,16 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'main.urls'
+ROOT_URLCONF = 'root.urls'
 AUTH_USER_MODEL = 'users.User'
 
-# google smtp
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = os.getenv('EMAIL')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PWD')
+# smtp
+DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PWD')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -99,8 +99,12 @@ WSGI_APPLICATION = 'main.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PWD'),
+        'HOST': os.getenv('DB_SOCK'),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
 
@@ -140,7 +144,7 @@ USE_I18N = True
 
 USE_L10N = False
 
-USE_TZ = True
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -149,7 +153,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     BASE_DIR / 'static',
 )
-STATIC_ROOT = '/var/www/experts/static/'
+STATIC_ROOT = BASE_DIR / 'static-root'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
