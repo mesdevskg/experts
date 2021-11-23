@@ -74,7 +74,7 @@ jobs:
         run: |
           echo WEB_IMAGE=${{ env.WEB_IMAGE }} >> ./.env
           echo NGINX_IMAGE=${{ env.NGINX_IMAGE }} >> ./.env
-          echo NAMESPACE=${{ env.NAMESPACE }} >> ./.env
+          echo NAMESPACE=${{ secrets.NAMESPACE }} >> ./.env
           echo PERSONAL_ACCESS_TOKEN=${{ secrets.PERSONAL_ACCESS_TOKEN }} >> ./.env
           echo POSTGRES_USER=${{ secrets.DB_USER }} >> ./.db.env
           echo POSTGRES_PASSWORD=${{ secrets.DB_PWD }} >> ./.db.env
