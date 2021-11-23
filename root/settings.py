@@ -92,7 +92,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'main.wsgi.application'
+WSGI_APPLICATION = 'root.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -129,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = os.getenv('LANGUAGE_CODE')
 LANGUAGES = (
     ('en', gettext_lazy('English')),
     ('ky', gettext_lazy('Kyrgyz')),
@@ -158,3 +158,5 @@ STATIC_ROOT = BASE_DIR / 'static-root'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
 LOCALE_PATHS = BASE_DIR / 'locale',
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

@@ -9,6 +9,7 @@ django-crispy-forms = "*"
 python-dotenv = "*"
 django-rosetta = "*"
 gunicorn = "*"
+psycopg2 = "*"
 
 [dev-packages]
 

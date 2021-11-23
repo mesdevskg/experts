@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django.utils.safestring import mark_safe
 
 from items.models import Book, Expert, History
 
@@ -33,4 +32,3 @@ class ExpertAdmin(admin.ModelAdmin):
 class HistoryAdmin(ReadOnlyAdminMixin, admin.ModelAdmin):
     fields = 'winner', 'book', 'okuu_kitep', 'sector_knigi', 'created'
     list_filter = 'book', '_type'
-

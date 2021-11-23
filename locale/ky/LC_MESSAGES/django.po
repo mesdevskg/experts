@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-08 10:06+0600\n"
+"POT-Creation-Date: 2021-11-23 08:44+0600\n"
 "PO-Revision-Date: 2021-02-08 10:07+0458\n"
 "Last-Translator: b'Anonymous User <test@okuu.kg>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,83 +19,83 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.9.5\n"
 
-#: items/models.py:7 users/forms.py:16
+#: items/models.py:8 users/forms.py:16
 msgid "book"
 msgstr "китеп"
 
-#: items/models.py:10 templates/items/expert_detail.html:21
+#: items/models.py:11 templates/items/expert_detail.html:21
 #: templates/items/expert_detail.html:36 templates/items/expert_list.html:20
 #: templates/items/history_detail.html:22 templates/items/history_list.html:20
 #: templates/victory.html:60
 msgid "Book"
 msgstr "Китеп"
 
-#: items/models.py:11
+#: items/models.py:12
 msgid "Books"
 msgstr "Китептер"
 
-#: items/models.py:19 users/models.py:57
+#: items/models.py:20 users/models.py:57
 msgid "full name"
 msgstr "Аты жөнү"
 
-#: items/models.py:20
+#: items/models.py:21
 msgid "joined time"
 msgstr "Кошулган күнү"
 
-#: items/models.py:23
+#: items/models.py:24
 msgid "Expert"
 msgstr "Эксперт"
 
-#: items/models.py:24 templates/base.html:36
+#: items/models.py:25 templates/base.html:36
 msgid "Experts"
 msgstr "Эксперт"
 
-#: items/models.py:36
+#: items/models.py:37
 msgid "created time"
 msgstr "Жасалган убактысы"
 
-#: items/models.py:37 templates/items/expert_detail.html:4
-#: templates/items/history_detail.html:5
-#: templates/items/history_detail.html:18 templates/victory.html:11
+#: items/models.py:38 templates/items/expert_detail.html:4
+#: templates/items/history_detail.html:5 templates/items/history_detail.html:18
+#: templates/victory.html:11
 msgid "Winner"
 msgstr "Жеңүүчү"
 
-#: items/models.py:39
+#: items/models.py:40
 msgid "Type"
 msgstr "Тиби"
 
-#: items/models.py:41 templates/items/history_detail.html:26 users/forms.py:19
+#: items/models.py:42 templates/items/history_detail.html:26 users/forms.py:19
 #: users/models.py:53
 msgid "Okuu Kitep"
 msgstr "Окуу Китеп"
 
-#: items/models.py:43 templates/items/history_detail.html:30
+#: items/models.py:44 templates/items/history_detail.html:30
 msgid "Sector Knigi"
 msgstr "Китеп Сектору"
 
-#: items/models.py:44
+#: items/models.py:45
 msgid "document"
 msgstr "Иш кагаз"
 
-#: items/models.py:47 templates/base.html:39 templates/home.html:40
+#: items/models.py:48 templates/base.html:39 templates/home.html:40
 #: templates/victory.html:54
 msgid "History"
 msgstr "Тарых"
 
-#: items/models.py:48
+#: items/models.py:49
 msgid "Histories"
 msgstr "Тарыхтар"
 
-#: items/models.py:53
+#: items/models.py:54
 msgid "commission one and commission two can't be same"
 msgstr "Коммиссиялар окшош болбошу керек"
 
-#: items/views.py:63
+#: items/views.py:67
 #, python-brace-format
 msgid "The book {book.name} has no experts"
 msgstr "{book.name} китебинде бир да эксперт жок"
 
-#: items/views.py:67
+#: items/views.py:71
 msgid ""
 "Please enter the correct username and password for a staff account. Note "
 "that both fields may be case-sensitive."
@@ -103,15 +103,15 @@ msgstr ""
 "Сураныч, кызматкердин колдонуучу жана сырсөздү туура киргизиңиз. Эки талаа "
 "тең ЧоңКичинеликке сезгич болушу мүмкүн."
 
-#: main/settings.py:130
+#: root/settings.py:134
 msgid "English"
 msgstr "Англисче"
 
-#: main/settings.py:131
+#: root/settings.py:135
 msgid "Kyrgyz"
 msgstr "Кыргызча"
 
-#: main/settings.py:132
+#: root/settings.py:136
 msgid "Russian"
 msgstr "Орусча"
 
@@ -142,13 +142,12 @@ msgstr "Баардык аракеттер"
 msgid "All History"
 msgstr "Баардык тарыхтар"
 
-#: templates/items/expert_detail.html:10
-#: templates/items/history_detail.html:11 templates/items/history_list.html:10
+#: templates/items/expert_detail.html:10 templates/items/history_detail.html:11
+#: templates/items/history_list.html:10
 msgid "History List"
 msgstr "Тарых тизмеси"
 
-#: templates/items/expert_detail.html:11
-#: templates/items/history_detail.html:12
+#: templates/items/expert_detail.html:11 templates/items/history_detail.html:12
 msgid "History Detail"
 msgstr "Тарых жөнүндө"
 
