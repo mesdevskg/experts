@@ -27,9 +27,9 @@ jobs:
           echo DEBUG=${{ secrets.DEBUG }} >> ./root/.env
           echo DATABASE=${{ secrets.DATABASE }} >> ./root/.env
           echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> ./root/.env
-          echo SECRET_KEY=${{ secrets.LANGUAGE_CODE }} >> ./root/.env
+          echo LANGUAGE_CODE=${{ secrets.LANGUAGE_CODE }} >> ./root/.env
           echo ALLOWED_HOSTS=${{ secrets.ALLOWED_HOSTS }} >> ./root/.env
-          echo DB_NAME=${{ secrets.env }} >> ./root/.env
+          echo DB_NAME=${{ secrets.DB_NAME }} >> ./root/.env
           echo DB_USER=${{ secrets.DB_USER }} >> ./root/.env
           echo DB_PWD=${{ secrets.DB_PWD }} >> ./root/.env
           echo DB_HOST=${{ secrets.DB_HOST }} >> ./root/.env
