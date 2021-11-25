@@ -28,7 +28,7 @@ services:
   web:
     image: "${WEB_IMAGE}"
     volumes:
-      - static_volume:/home/app/web/static
+      - static_volume:/home/app/web/static-root
       - media_volume:/home/app/web/media
       - /var/run/experts:/var/run/gunicorn
     command: "gunicorn root.wsgi:application \
@@ -40,7 +40,7 @@ services:
   nginx:
     image: "${NGINX_IMAGE}"
     volumes:
-      - static_volume:/home/app/web/static
+      - static_volume:/home/app/web/static-root
       - media_volume:/home/app/web/media
       - /var/run/experts:/var/run/experts
     ports:
