@@ -29,6 +29,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
 
+
+SECURE_PROXY_SSL_HEADER = 'HTTP_X_FORWARDED_PROTO', 'https'
+
 ALLOWED_HOSTS = '*' if DEBUG else os.getenv('ALLOWED_HOSTS').split(' ')
 
 # Application definition
