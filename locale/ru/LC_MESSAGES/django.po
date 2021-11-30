@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 08:44+0600\n"
-"PO-Revision-Date: 2021-11-23 10:01+0458\n"
+"POT-Creation-Date: 2021-11-30 14:58+0600\n"
+"PO-Revision-Date: 2021-11-30 15:00+0458\n"
 "Last-Translator: Anonymous User <soyuzbek196.kg@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -125,6 +125,10 @@ msgstr "О проекте"
 #: templates/victory.html:5
 msgid "Home"
 msgstr "Главная"
+
+#: templates/base.html:70
+msgid "This site developed by Жаңы Китеп"
+msgstr "Сайт разработан учреждением \"Жаңы Китеп\"."
 
 #: templates/home.html:11
 msgid "Randomly choose an expert"
