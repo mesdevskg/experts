@@ -52,6 +52,14 @@ services:
       - web
     restart: unless-stopped
 
+  redis:
+    image: "${REDIS_IMAGE}"
+    restart: unless-stopped
+    expose:
+      - 6379
+    volumes:
+      - /var/run/experts:/var/run/redis
+
 volumes:
   postgres_data:
   static_volume:

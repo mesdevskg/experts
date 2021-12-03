@@ -28,3 +28,10 @@ services:
       cache_from:
         - "${NGINX_IMAGE}"
     image: "${NGINX_IMAGE}"
+
+  redis:
+    build:
+      context: ./redis
+      cache_from:
+        - "${REDIS_IMAGE}"
+    image: "${REDIS_IMAGE}"

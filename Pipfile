@@ -10,6 +10,8 @@ python-dotenv = "*"
 django-rosetta = "*"
 gunicorn = "*"
 psycopg2 = "*"
+celery = "*"
+django-redis = "*"
 
 [dev-packages]
 

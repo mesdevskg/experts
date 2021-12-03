@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-30 14:58+0600\n"
+"POT-Creation-Date: 2021-12-03 12:01+0600\n"
 "PO-Revision-Date: 2021-11-30 14:58+0458\n"
 "Last-Translator: Anonymous User <soyuzbek196.kg@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,7 +46,7 @@ msgstr "Кошулган күнү"
 msgid "Expert"
 msgstr "Эксперт"
 
-#: items/models.py:25 templates/base.html:36
+#: items/models.py:25 templates/base.html:37
 msgid "Experts"
 msgstr "Эксперт"
 
@@ -55,8 +55,8 @@ msgid "created time"
 msgstr "Жасалган убактысы"
 
 #: items/models.py:38 templates/items/expert_detail.html:4
-#: templates/items/history_detail.html:5
-#: templates/items/history_detail.html:18 templates/victory.html:11
+#: templates/items/history_detail.html:5 templates/items/history_detail.html:18
+#: templates/victory.html:11
 msgid "Winner"
 msgstr "Жеңүүчү"
 
@@ -77,7 +77,7 @@ msgstr "Китеп Сектору"
 msgid "document"
 msgstr "Иш кагаз"
 
-#: items/models.py:48 templates/base.html:39 templates/home.html:40
+#: items/models.py:48 templates/base.html:40 templates/home.html:40
 #: templates/victory.html:54
 msgid "History"
 msgstr "Тарых"
@@ -103,30 +103,30 @@ msgstr ""
 "Сураныч, кызматкердин колдонуучу жана сырсөздү туура киргизиңиз. Эки талаа "
 "тең ЧоңКичинеликке сезгич болушу мүмкүн."
 
-#: root/settings.py:134
+#: root/settings.py:138
 msgid "English"
 msgstr "Англисче"
 
-#: root/settings.py:135
+#: root/settings.py:139
 msgid "Kyrgyz"
 msgstr "Кыргызча"
 
-#: root/settings.py:136
+#: root/settings.py:140
 msgid "Russian"
 msgstr "Орусча"
 
-#: templates/about.html:4 templates/base.html:42
+#: templates/about.html:4 templates/base.html:43
 msgid "About Project"
 msgstr "Долбоор Жөнүндө"
 
-#: templates/base.html:33 templates/home.html:6
+#: templates/base.html:34 templates/home.html:6
 #: templates/items/expert_detail.html:9 templates/items/expert_list.html:9
 #: templates/items/history_detail.html:10 templates/items/history_list.html:9
 #: templates/victory.html:5
 msgid "Home"
 msgstr "Башкы"
 
-#: templates/base.html:70
+#: templates/base.html:71
 msgid "This site developed by Жаңы Китеп"
 msgstr "Бул сайт Жаңы Китп тарабынан иштелип чыккан"
 
@@ -146,13 +146,12 @@ msgstr "Баардык аракеттер"
 msgid "All History"
 msgstr "Баардык тарыхтар"
 
-#: templates/items/expert_detail.html:10
-#: templates/items/history_detail.html:11 templates/items/history_list.html:10
+#: templates/items/expert_detail.html:10 templates/items/history_detail.html:11
+#: templates/items/history_list.html:10
 msgid "History List"
 msgstr "Тарых тизмеси"
 
-#: templates/items/expert_detail.html:11
-#: templates/items/history_detail.html:12
+#: templates/items/expert_detail.html:11 templates/items/history_detail.html:12
 msgid "History Detail"
 msgstr "Тарых жөнүндө"
 
@@ -249,5 +248,5 @@ msgid "Your new password"
 msgstr "Сиздин жаңы сырсөз"
 
 #: users/models.py:82
-msgid "Your new password:\t"
-msgstr "Сиздин жаңы сырсөз:\t"
+msgid "Your new password: "
+msgstr "Сиздин жаңы сырсөз: "

@@ -69,6 +69,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'root.urls'
 AUTH_USER_MODEL = 'users.User'
+LOGIN_URL = 'admin:login'
 
 # smtp
 DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER')
@@ -163,3 +164,9 @@ MEDIA_ROOT = 'media'
 LOCALE_PATHS = BASE_DIR / 'locale',
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+# Celery Configuration Options
+CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL')
+CELERY_TIMEZONE = 'Asia/Bishkek'
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60

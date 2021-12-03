@@ -12,6 +12,7 @@ env:
   BUILDER_IMAGE: ghcr.io/$(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]')/builder
   WEB_IMAGE: ghcr.io/$(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]')/web
   NGINX_IMAGE: ghcr.io/$(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]')/nginx
+  REDIS_IMAGE: ghcr.io/$(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]')/redis
 
 jobs:
 
@@ -39,11 +40,13 @@ jobs:
           echo EMAIL_HOST=${{ secrets.EMAIL_HOST }} >> ./root/.env
           echo EMAIL_PORT=${{ secrets.EMAIL_PORT }} >> ./root/.env
           echo EMAIL_HOST_USER=${{ secrets.EMAIL_HOST_USER }} >> ./root/.env
+          echo CELERY_BROKER_URL=${{ secrets.CELERY_BROKER_URL }} >> ./root/.env
       - name: Set environment variables
         run: |
           echo "BUILDER_IMAGE=$(echo ${{ env.BUILDER_IMAGE }} )" >> $GITHUB_ENV
           echo "WEB_IMAGE=$(echo ${{ env.WEB_IMAGE }} )" >> $GITHUB_ENV
           echo "NGINX_IMAGE=$(echo ${{ env.NGINX_IMAGE }} )" >> $GITHUB_ENV
+          echo "REDIS_IMAGE=$(echo ${{ env.REDIS_IMAGE }} )" >> $GITHUB_ENV
       - name: Login to Github Packages
         run: echo ${PERSONAL_ACCESS_TOKEN} | docker login ghcr.io -u ${{ secrets.NAMESPACE}} --password-stdin
         env:
@@ -53,6 +56,7 @@ jobs:
           docker pull ${{ env.BUILDER_IMAGE }} || true
           docker pull ${{ env.WEB_IMAGE }} || true
           docker pull ${{ env.NGINX_IMAGE }} || true
+          docker pull ${{ env.REDIS_IMAGE }} || true
       - name: Build images
         run: |
           docker-compose -f docker-compose.ci.yml build
@@ -61,6 +65,7 @@ jobs:
           docker push ${{ env.BUILDER_IMAGE }}
           docker push ${{ env.WEB_IMAGE }}
           docker push ${{ env.NGINX_IMAGE }}
+          docker push ${{ env.REDIS_IMAGE }}
 
   deploy:
     name: Deploy to Host
@@ -74,6 +79,7 @@ jobs:
         run: |
           echo WEB_IMAGE=${{ env.WEB_IMAGE }} >> ./.env
           echo NGINX_IMAGE=${{ env.NGINX_IMAGE }} >> ./.env
+          echo REDIS_IMAGE=${{ env.REDIS_IMAGE }} >> ./.env
           echo NAMESPACE=${{ secrets.NAMESPACE }} >> ./.env
           echo PERSONAL_ACCESS_TOKEN=${{ secrets.PERSONAL_ACCESS_TOKEN }} >> ./.env
           echo POSTGRES_USER=${{ secrets.DB_USER }} >> ./.db.env
@@ -112,4 +118,5 @@ jobs:
             docker-compose -f docker-compose.yml up -d
             docker image prune -f
             docker-compose exec -d web gunicorn root.wsgi:application --name web --workers 2 --user=root --group root --bind=unix:/var/run/gunicorn/gunicorn.sock --log-level=debug --log-file=-
+            docker-compose exec -d web celery -A root worker -l info
           ENDSSH

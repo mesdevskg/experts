@@ -1,9 +1,9 @@
-from django.conf import settings
 from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
 from django.contrib.auth.models import AbstractUser, PermissionsMixin
-from django.core.mail import send_mail
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+
+from root.celery import send_email
 
 
 class UserManager(BaseUserManager):
@@ -79,9 +79,7 @@ class User(AbstractBaseUser, PermissionsMixin):
                 raw_pwd = User.objects.make_random_password()
                 self.set_password(raw_pwd)
                 super(User, self).save(*args, **kwargs)
-                send_mail(_('Your new password'), _('Your new password:\t') + raw_pwd,
-                          settings.EMAIL_HOST_USER,
-                          [self.email])
+                send_email.delay(_('Your new password'), _('Your new password: ') + raw_pwd, [self.email])
 
     def super_save(self, *args, **kwargs):
         super(User, self).save(*args, **kwargs)

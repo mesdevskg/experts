@@ -23,6 +23,6 @@ class UserAdmin(UserAdmin):
         }),
     )
     ordering = 'fullname',
-    list_display = 'email', 'fullname', 'is_superuser'
-    list_filter = 'is_superuser', 'is_staff'
-    search_fields = 'fullname',
+    list_display = 'email', 'fullname', 'is_superuser', 'category'
+    list_filter = 'is_superuser', 'is_staff', 'category'
+    search_fields = 'fullname', 'email'
