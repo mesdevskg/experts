@@ -21,6 +21,9 @@ class ReadOnlyAdminMixin:
 class BookAdmin(admin.ModelAdmin):
     pass
 
+    def has_delete_permission(self, request, obj=None):
+        return False
+
 
 @admin.register(Expert)
 class ExpertAdmin(admin.ModelAdmin):
