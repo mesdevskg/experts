@@ -250,4 +250,4 @@ msgstr "Сиздин жаңы сырсөз"
 
 #: users/models.py:82
 msgid "Your new password:\t"
-msgstr "Сиздин жаңы сырсөз:"
+msgstr "Сиздин жаңы сырсөз:\t"

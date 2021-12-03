@@ -250,4 +250,4 @@ msgstr "Ваш новый пароль"
 
 #: users/models.py:82
 msgid "Your new password:\t"
-msgstr "Ваш новый пароль:"
+msgstr "Ваш новый пароль:\t"
