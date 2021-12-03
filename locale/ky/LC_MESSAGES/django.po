@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-03 14:25+0600\n"
-"PO-Revision-Date: 2021-11-30 14:58+0458\n"
+"POT-Creation-Date: 2021-12-03 15:28+0600\n"
+"PO-Revision-Date: 2021-12-03 15:29+0458\n"
 "Last-Translator: Anonymous User <soyuzbek196.kg@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -55,8 +55,8 @@ msgid "created time"
 msgstr "Жасалган убактысы"
 
 #: items/models.py:38 templates/items/expert_detail.html:4
-#: templates/items/history_detail.html:5 templates/items/history_detail.html:18
-#: templates/victory.html:11
+#: templates/items/history_detail.html:5
+#: templates/items/history_detail.html:18 templates/victory.html:11
 msgid "Winner"
 msgstr "Жеңүүчү"
 
@@ -128,7 +128,7 @@ msgstr "Башкы"
 
 #: templates/base.html:71
 msgid "This site developed by Жаңы Китеп"
-msgstr "Бул сайт Жаңы Китп тарабынан иштелип чыккан"
+msgstr "Бул сайт Жаңы Китеп тарабынан иштелип чыккан"
 
 #: templates/home.html:11
 msgid "Randomly choose an expert"
@@ -146,12 +146,13 @@ msgstr "Баардык аракеттер"
 msgid "All History"
 msgstr "Баардык тарыхтар"
 
-#: templates/items/expert_detail.html:10 templates/items/history_detail.html:11
-#: templates/items/history_list.html:10
+#: templates/items/expert_detail.html:10
+#: templates/items/history_detail.html:11 templates/items/history_list.html:10
 msgid "History List"
 msgstr "Тарых тизмеси"
 
-#: templates/items/expert_detail.html:11 templates/items/history_detail.html:12
+#: templates/items/expert_detail.html:11
+#: templates/items/history_detail.html:12
 msgid "History Detail"
 msgstr "Тарых жөнүндө"
 

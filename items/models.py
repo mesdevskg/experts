@@ -17,7 +17,7 @@ class Book(models.Model):
 
 class Expert(models.Model):
     book = models.ForeignKey('Book', models.DO_NOTHING, verbose_name=_('book'))
-    full_name = models.CharField(_('full name'), max_length=255)
+    fullname = models.CharField(_('full name'), max_length=255)
     created = models.DateTimeField(_('joined time'), auto_now_add=True)
 
     class Meta:
@@ -25,7 +25,7 @@ class Expert(models.Model):
         verbose_name_plural = _('Experts')
 
     def __str__(self):
-        return self.full_name
+        return self.fullname
 
 
 class History(models.Model):
@@ -57,4 +57,4 @@ class History(models.Model):
         return reverse('items:history_detail', kwargs={'pk': self.id})
 
     def __str__(self):
-        return f'{self.winner.full_name} {self.created.strftime("%d %b %Y %H:%M:%S")}'
+        return f'{self.winner.fullname} {self.created.strftime("%d %b %Y %H:%M:%S")}'

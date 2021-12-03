@@ -26,7 +26,7 @@
                 {% for object in object_list %}
                     <tr>
                         <th scope="row">{{ forloop.counter }}</th>
-                        <td>{{ object.full_name }}</td>
+                        <td>{{ object.fullname }}</td>
                         <td>{{ object.book }}</td>
                         <td>{{ object.created }}</td>
                         <td><a href="{% url 'items:expert_detail' object.id %}">{% trans 'More' %}</a></td>

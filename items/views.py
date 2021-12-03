@@ -46,7 +46,7 @@ class HomeView(View):
                                 <div class="d-flex mt-5">
                                <div class="mr-auto"><p> Бишкек ш. </p></div>
                                <div class="ml-auto"><span>{_date(now(), 'j-F Y')} ж.</span></div></div>
-                               <p class="mt-3">{winner.full_name}</p>
+                               <p class="mt-3">{winner.fullname}</p>
                                <p class="mt-2">Окуу китепбинин аталышы {book.name}</p>
                                <p class="mt-2">окуу усулдук комплексине {_type} экспертиза
                                 жүргүзүү үчүн эксперт катары тандалды</p>

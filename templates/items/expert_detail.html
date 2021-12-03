@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block title %}
-    {% trans 'Winner' %}: {{ object.winner.full_name }}
+    {% trans 'Winner' %}: {{ object.winner.fullname }}
 {% endblock %}
 {% block content %}
     <nav aria-label="breadcrumb">
@@ -15,7 +15,7 @@
         <tbody>
         <tr>
             <th scope="row">{% trans 'Full name' %}</th>
-            <td>{{ object.full_name }}</td>
+            <td>{{ object.fullname }}</td>
         </tr>
         <tr>
             <th>{% trans 'Book' %}</th>
