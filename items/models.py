@@ -16,7 +16,7 @@ class Book(models.Model):
 
 
 class Expert(models.Model):
-    book = models.ForeignKey('Book', models.DO_NOTHING)
+    book = models.ForeignKey('Book', models.DO_NOTHING, verbose_name=_('book'))
     full_name = models.CharField(_('full name'), max_length=255)
     created = models.DateTimeField(_('joined time'), auto_now_add=True)
 
