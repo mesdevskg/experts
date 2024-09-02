@@ -42,7 +42,7 @@ class HomeView(View):
                 if valid_expert_list.exists():
                     winner = random.choice(valid_expert_list)
                     document = f'''<div class="print-container">
-                               <div class="text-center title"><strong>Эксперт Тандоо </strong></div>
+                               <div class="text-center title"><strong>Экспертти Тандоо </strong></div>
                                 <div class="d-flex mt-5">
                                <div class="mr-auto"><p> Бишкек ш. </p></div>
                                <div class="ml-auto"><span>{_date(now(), 'j-F Y')} ж.</span></div></div>
