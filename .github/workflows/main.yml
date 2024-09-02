@@ -59,7 +59,7 @@ jobs:
           docker pull ${{ env.REDIS_IMAGE }} || true
       - name: Build images
         run: |
-          docker-compose -f docker-compose.ci.yml build
+          docker compose -f docker-compose.ci.yml build
       - name: Push images
         run: |
           docker push ${{ env.BUILDER_IMAGE }}
