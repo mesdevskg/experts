@@ -31,13 +31,8 @@ services:
       - static_volume:/home/app/web/static-root
       - media_volume:/home/app/web/media
       - /var/run/experts:/var/run/gunicorn
-    command: >
-      gunicorn root.wsgi:application
-      --workers 2
-      --user=root
-      --group=root
-      --bind=unix:/var/run/gunicorn/gunicorn.sock
-      --log-file=-
+    command: "gunicorn root.wsgi:application \
+      --workers 2 --user=root --group root --bind=unix:/var/run/gunicorn/gunicorn.sock --log-file=-"
     depends_on:
       - db
     restart: unless-stopped
