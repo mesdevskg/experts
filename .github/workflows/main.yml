@@ -103,11 +103,16 @@ jobs:
           ssh-agent -a $SSH_AUTH_SOCK > /dev/null
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           ssh-add - <<< "${{ secrets.PRIVATE_KEY }}"
+      - name: Copy files
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+            scp -o StrictHostKeyChecking=no -P ${{ secrets.HOST_PORT }} "./.env" "./.db.env" "./.backups.env" "./docker-compose.yml" kitep@${{ secrets.HOST_IP_ADDRESS }}:/root/experts
       - name: Build and deploy images on Host
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
-          scp -o StrictHostKeyChecking=no -P ${{ secrets.HOST_PORT }} "./.env" "./.db.env" "./.backups.env" "./docker-compose.yml" kitep@${{ secrets.HOST_IP_ADDRESS }}:/root/experts
+          
           ssh -o StrictHostKeyChecking=no kitep@${{ secrets.HOST_IP_ADDRESS }} -p ${{ secrets.HOST_PORT }} << 'ENDSSH'
             cd /root/experts
             source ./.env
