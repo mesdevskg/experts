@@ -107,7 +107,7 @@ jobs:
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
-            scp -o StrictHostKeyChecking=no "./.env" "./.db.env" "./.backups.env" "./docker-compose.yml" -P ${{ secrets.HOST_PORT }} kitep@${{ secrets.HOST_IP_ADDRESS }}:/root/experts
+            scp -o StrictHostKeyChecking=no -P ${{ secrets.HOST_PORT }} "./.env" "./.db.env" "./.backups.env" "./docker-compose.yml" kitep@${{ secrets.HOST_IP_ADDRESS }}:/root/experts
       # - name: build
       #   env:
       #     SSH_AUTH_SOCK: /tmp/ssh_agent.sock
