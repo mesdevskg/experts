@@ -107,7 +107,7 @@ jobs:
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
-            scp -o StrictHostKeyChecking=no -P 2021 "./.env" "./.db.env" "./.backups.env" "./docker-compose.yml" kitep@85.113.15.230:/root/experts
+            scp -o StrictHostKeyChecking=no -P 2021 "./.env" "./.db.env" "./.backups.env" "./docker-compose.yml" kitep@85.113.15.230:~/
       # - name: build
       #   env:
       #     SSH_AUTH_SOCK: /tmp/ssh_agent.sock
